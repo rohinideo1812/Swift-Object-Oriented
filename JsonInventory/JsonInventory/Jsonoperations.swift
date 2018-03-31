@@ -1,10 +1,11 @@
-//
-//  Jsonoperations.swift
-//  JsonInventory
-//
-//  Created by BridgeLabz on 27/03/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
+/******************************************************************************
+ *  Purpose: Functions of JSONoperations
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   28-03-2018
+ *
+ ******************************************************************************/
 
 import Foundation
 class JSONOperation{
@@ -36,6 +37,22 @@ class JSONOperation{
             file.closeFile()
         }
     }
-   
+    
+    func writeToJSONFile1(path:String){
+        //Write to JSON File
+        let json1:Dictionary<String,Any> = [ "name":"Rahul",
+                                             "age":24,
+                                             "city":"nasik",
+                                             "education":"BE Computer"]
+        var array1:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+        array1.append(json1)
+        if let file:FileHandle = FileHandle(forWritingAtPath: path){
+            if let jsonData = try? JSONSerialization.data(withJSONObject: array1, options: .prettyPrinted){
+                file.write(jsonData)
+            }
+            file.closeFile()
+        }
+    }
+    
 }
 

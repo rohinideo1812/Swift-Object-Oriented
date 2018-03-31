@@ -1,10 +1,12 @@
-//
-//  Reader.swift
-//  JsonInventory
-//
-//  Created by BridgeLabz on 27/03/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
+
+/******************************************************************************
+ *  Purpose:Read and Write Functions
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   28-03-2018
+ *
+ ******************************************************************************/
 
 import Foundation
 class Reader{

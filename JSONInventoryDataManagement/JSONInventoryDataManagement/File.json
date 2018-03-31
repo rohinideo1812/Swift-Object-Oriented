@@ -1,0 +1,29 @@
+{
+  "Rice" : [
+    {
+      "name" : "e",
+      "price" : 67,
+      "weight" : 54
+    }
+  ],
+  "Pulse" : [
+    {
+      "name" : "ytr",
+      "price" : 67,
+      "weight" : 45
+    }
+  ],
+  "Wheat" : [
+    {
+      "name" : "ty",
+      "price" : 78,
+      "weight" : 56
+    }
+  ]
+} {
+      "name" : "b",
+      "price" : 40,
+      "weight" : 20
+    }
+  ]
+}
