@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A77CBCC206FAE5000F2B3AF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77CBCB206FAE5000F2B3AF /* main.swift */; };
-		0A77CBD4206FAE9600F2B3AF /* CliniqueOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */; };
+		0A24E03E20723DAC00DD4D76 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24E03D20723DAC00DD4D76 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0A77CBC6206FAE5000F2B3AF /* CopyFiles */ = {
+		0A24E03820723DAC00DD4D76 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,15 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CliniqueManagement; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A77CBCB206FAE5000F2B3AF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0A77CBD2206FAE7100F2B3AF /* CliniqueManagement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CliniqueManagement.json; sourceTree = "<group>"; };
-		0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliniqueOperations.swift; sourceTree = "<group>"; };
-		0AB6E27A2073AF16001ABF3A /* Appointement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Appointement.json; sourceTree = "<group>"; };
+		0A24E03A20723DAC00DD4D76 /* Random */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Random; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A24E03D20723DAC00DD4D76 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A77CBC5206FAE5000F2B3AF /* Frameworks */ = {
+		0A24E03720723DAC00DD4D76 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,100 +38,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A77CBBF206FAE5000F2B3AF = {
+		0A24E03120723DAB00DD4D76 = {
 			isa = PBXGroup;
 			children = (
-				0A77CBCA206FAE5000F2B3AF /* CliniqueManagement */,
-				0A77CBC9206FAE5000F2B3AF /* Products */,
+				0A24E03C20723DAC00DD4D76 /* Random */,
+				0A24E03B20723DAC00DD4D76 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A77CBC9206FAE5000F2B3AF /* Products */ = {
+		0A24E03B20723DAC00DD4D76 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */,
+				0A24E03A20723DAC00DD4D76 /* Random */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A77CBCA206FAE5000F2B3AF /* CliniqueManagement */ = {
+		0A24E03C20723DAC00DD4D76 /* Random */ = {
 			isa = PBXGroup;
 			children = (
-				0A77CBCB206FAE5000F2B3AF /* main.swift */,
-				0AB6E27A2073AF16001ABF3A /* Appointement.json */,
-				0A77CBD2206FAE7100F2B3AF /* CliniqueManagement.json */,
-				0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */,
+				0A24E03D20723DAC00DD4D76 /* main.swift */,
 			);
-			path = CliniqueManagement;
+			path = Random;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A77CBC7206FAE5000F2B3AF /* CliniqueManagement */ = {
+		0A24E03920723DAC00DD4D76 /* Random */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A77CBCF206FAE5000F2B3AF /* Build configuration list for PBXNativeTarget "CliniqueManagement" */;
+			buildConfigurationList = 0A24E04120723DAC00DD4D76 /* Build configuration list for PBXNativeTarget "Random" */;
 			buildPhases = (
-				0A77CBC4206FAE5000F2B3AF /* Sources */,
-				0A77CBC5206FAE5000F2B3AF /* Frameworks */,
-				0A77CBC6206FAE5000F2B3AF /* CopyFiles */,
+				0A24E03620723DAC00DD4D76 /* Sources */,
+				0A24E03720723DAC00DD4D76 /* Frameworks */,
+				0A24E03820723DAC00DD4D76 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CliniqueManagement;
-			productName = CliniqueManagement;
-			productReference = 0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */;
+			name = Random;
+			productName = Random;
+			productReference = 0A24E03A20723DAC00DD4D76 /* Random */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A77CBC0206FAE5000F2B3AF /* Project object */ = {
+		0A24E03220723DAB00DD4D76 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = BridgeLabz;
 				TargetAttributes = {
-					0A77CBC7206FAE5000F2B3AF = {
+					0A24E03920723DAC00DD4D76 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 0A77CBC3206FAE5000F2B3AF /* Build configuration list for PBXProject "CliniqueManagement" */;
+			buildConfigurationList = 0A24E03520723DAC00DD4D76 /* Build configuration list for PBXProject "Random" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0A77CBBF206FAE5000F2B3AF;
-			productRefGroup = 0A77CBC9206FAE5000F2B3AF /* Products */;
+			mainGroup = 0A24E03120723DAB00DD4D76;
+			productRefGroup = 0A24E03B20723DAC00DD4D76 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A77CBC7206FAE5000F2B3AF /* CliniqueManagement */,
+				0A24E03920723DAC00DD4D76 /* Random */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A77CBC4206FAE5000F2B3AF /* Sources */ = {
+		0A24E03620723DAC00DD4D76 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A77CBCC206FAE5000F2B3AF /* main.swift in Sources */,
-				0A77CBD4206FAE9600F2B3AF /* CliniqueOperations.swift in Sources */,
+				0A24E03E20723DAC00DD4D76 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0A77CBCD206FAE5000F2B3AF /* Debug */ = {
+		0A24E03F20723DAC00DD4D76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		0A77CBCE206FAE5000F2B3AF /* Release */ = {
+		0A24E04020723DAC00DD4D76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -241,7 +233,7 @@
 			};
 			name = Release;
 		};
-		0A77CBD0206FAE5000F2B3AF /* Debug */ = {
+		0A24E04220723DAC00DD4D76 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -250,7 +242,7 @@
 			};
 			name = Debug;
 		};
-		0A77CBD1206FAE5000F2B3AF /* Release */ = {
+		0A24E04320723DAC00DD4D76 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A77CBC3206FAE5000F2B3AF /* Build configuration list for PBXProject "CliniqueManagement" */ = {
+		0A24E03520723DAC00DD4D76 /* Build configuration list for PBXProject "Random" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A77CBCD206FAE5000F2B3AF /* Debug */,
-				0A77CBCE206FAE5000F2B3AF /* Release */,
+				0A24E03F20723DAC00DD4D76 /* Debug */,
+				0A24E04020723DAC00DD4D76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A77CBCF206FAE5000F2B3AF /* Build configuration list for PBXNativeTarget "CliniqueManagement" */ = {
+		0A24E04120723DAC00DD4D76 /* Build configuration list for PBXNativeTarget "Random" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A77CBD0206FAE5000F2B3AF /* Debug */,
-				0A77CBD1206FAE5000F2B3AF /* Release */,
+				0A24E04220723DAC00DD4D76 /* Debug */,
+				0A24E04320723DAC00DD4D76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A77CBC0206FAE5000F2B3AF /* Project object */;
+	rootObject = 0A24E03220723DAB00DD4D76 /* Project object */;
 }

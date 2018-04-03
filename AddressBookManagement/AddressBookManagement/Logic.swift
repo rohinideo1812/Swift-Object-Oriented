@@ -9,6 +9,11 @@
 
 import Foundation
 class AddressBookOperation{
+    var path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManagement/AddressBookManagement/AddressBook.json"
+    var addressbook:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    var array:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    var array1:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    var deletearray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
     func acceptInputInt()->Int{
         if let value = readLine(){
             if let input = Int(value){
@@ -41,12 +46,9 @@ class AddressBookOperation{
         default:print("Invalid Input")
         }
     }
-    var path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManagement/AddressBookManagement/AddressBook.json"
-    var addressbook:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
-    var array:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
-    var editarray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
-    var deletearray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    
     func addInfo(){
+       
         print("Enter the first name")
         let firstname = acceptInputString()
         print("Enter the last name")
@@ -63,45 +65,46 @@ class AddressBookOperation{
             print("Enter the zip")
             zip = String(acceptInputInt())
         } while zip.characters.count != 6
+        guard let zipcode = Int(zip) else{
+            return
+        }
         var telephoneno = ""
         repeat{
             print("Telephone number should be of length 10")
             print("Enter the telephone number")
             telephoneno = String(acceptInputInt())
         } while telephoneno.characters.count != 10
+        guard let telephone = Int(telephoneno) else{
+            return
+        }
+        
             let addressbookmanagement:Dictionary<String,Any> = [
                 "firstname" : firstname,
                 "lastname" : lastname,
                 "address" : address,
                 "city" : city,
                 "state" : state,
-                "zip" : Int(zip),
-                "telephone" : Int(telephoneno)
+                "zip" : zipcode,
+                "telephone" : telephone
             ]
-       
-        if let file:FileHandle = FileHandle(forReadingAtPath: path){
-                if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
-                    for d in json!{
-                        array.append(d as Dictionary<String,Any>)
-                    }
-                }
-                file.closeFile()
-            }
-            array.append(addressbookmanagement)
-
-    
+        array.append(addressbookmanagement)
+        print(array)
        //Write
-    if let file:FileHandle = FileHandle(forWritingAtPath: path){
-        if let jsonData = try? JSONSerialization.data(withJSONObject: array, options: .prettyPrinted){
-            file.write(jsonData)
-        }
-        file.closeFile()
-    }
+        if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
+            file.truncateFile(atOffset: 0)
+            if let jsonData = try? JSONSerialization.data(withJSONObject: array, options: .prettyPrinted){
+                file.write(jsonData)
+                print(jsonData)
+            }
+            file.closeFile()
+      }
         print("Addition Successfull")
     }
 
     func editInfo(){
-        print("Enter the Telephone number of a person who is to be deleted")
+   var editarray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    editarray.removeAll()
+    print("Enter the Telephone number of a person who is to be deleted")
         let telephone = acceptInputInt()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
@@ -111,10 +114,15 @@ class AddressBookOperation{
             }
             file.closeFile()
         }
+        print("editarray")
         print(editarray)
-let obj:[Dictionary<String,Any>] = editarray.filter({ $0["telephone"] as! Int == telephone})
-        print(obj)
-    
+        guard let index = editarray.index(where: {$0["telephone"] as! Int == telephone}) else{
+            return
+        }
+        print(index)
+ let obj:[Dictionary<String,Any>] = editarray.filter({ $0["telephone"] as! Int == telephone})
+        print("object")
+      print(obj)
         print("Enter the first name")
         let firstname = acceptInputString()
         print("Enter the last name")
@@ -131,44 +139,48 @@ let obj:[Dictionary<String,Any>] = editarray.filter({ $0["telephone"] as! Int ==
             print("Enter the zip")
             zip = String(acceptInputInt())
         } while zip.characters.count != 6
+        guard let zipcode = Int(zip) else{
+            return
+        }
         var telephoneno = ""
         repeat{
             print("Telephone number should be of length 10")
             print("Enter the telephone number")
             telephoneno = String(acceptInputInt())
         } while telephoneno.characters.count != 10
-        
+        guard let telephonenumber = Int(telephoneno) else{
+            return
+        }
         for var value in obj{
             value.updateValue(firstname, forKey: "firstname")
             value.updateValue(lastname, forKey: "lastname")
             value.updateValue(address, forKey: "address")
             value.updateValue(city, forKey: "city")
             value.updateValue(state, forKey: "state")
-            value.updateValue(zip, forKey: "zip")
-            value.updateValue(telephoneno, forKey: "telephone")
+            value.updateValue(zipcode, forKey: "zip")
+            value.updateValue(telephonenumber, forKey: "telephone")
             print(value)
-            if let file:FileHandle = FileHandle(forWritingAtPath: path){
-                if let jsonData = try? JSONSerialization.data(withJSONObject: value, options: .prettyPrinted){
-                    file.write(jsonData)
-                }
-                file.closeFile()
+        print("before remove Editarray")
+        print(editarray)
+        editarray.remove(at: index)
+        editarray.insert(value, at: index)
+        print("After insert")
+        print(editarray)
+      }
+        if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
+            file.truncateFile(atOffset: 0)
+            if let jsonData = try? JSONSerialization.data(withJSONObject: editarray, options: .prettyPrinted){
+                file.write(jsonData)
             }
+            file.closeFile()
         }
-        
 
-//        if let value = complete["Wheat"] as? [Dictionary<String,Any>]{
-//            for obj in value{
-//                if let price = obj["price"] as? Int{
-//                    if let weight = obj["weight"] as? Int{
-//                        print(price * weight)
-//                        total += price * weight
-//                    }
-//                }
-//            }
-    }
-    func deleteInfo(){
+}
+
+   func deleteInfo(){
+    deletearray.removeAll()
         print("Enter the Telephone number of a person who is to be deleted")
-        var telephone = acceptInputInt()
+    let telephone = acceptInputInt()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
                 for d in json!{
@@ -178,31 +190,36 @@ let obj:[Dictionary<String,Any>] = editarray.filter({ $0["telephone"] as! Int ==
             file.closeFile()
         }
         print(deletearray)
-        if let index = deletearray.index(where: {$0["telephone"] as! Int == telephone}){
+    if  let index = deletearray.index(where: {$0["telephone"] as! Int == telephone}){
             deletearray.remove(at: index)
-        }
-        print(deletearray)
-        print("Deletion Successfull")
-        if let file:FileHandle = FileHandle(forWritingAtPath: path){
-            if let jsonData = try? JSONSerialization.data(withJSONObject: deletearray, options: .prettyPrinted){
-                file.write(jsonData)
-            }
-            file.closeFile()
-        }
-}
+    }
+            print(deletearray)
+            print("Deletion Successfull")
+       
     
+    if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
+        file.truncateFile(atOffset: 0)
+        if let jsonData = try? JSONSerialization.data(withJSONObject: deletearray, options: .prettyPrinted){
+            file.write(jsonData)
+        }
+        file.closeFile()
+    }
+
+}
     func showInfo(){
+         array1.removeAll()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
                 for d in json!{
-                    array.append(d as Dictionary<String,Any>)
+                    array1.append(d as Dictionary<String,Any>)
                 }
             }
             file.closeFile()
         }
-        print(array)
+        print(array1)
     }
 }
 //object getting
 //   let obj:[Dictionary<String,Any>] = editarray.filter({ $0["telephone"] as! Int == telephone})
+
 

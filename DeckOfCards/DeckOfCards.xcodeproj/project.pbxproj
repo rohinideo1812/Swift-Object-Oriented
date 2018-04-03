@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A77CBCC206FAE5000F2B3AF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77CBCB206FAE5000F2B3AF /* main.swift */; };
-		0A77CBD4206FAE9600F2B3AF /* CliniqueOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */; };
+		0AB6E2612073859C001ABF3A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB6E2602073859C001ABF3A /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0A77CBC6206FAE5000F2B3AF /* CopyFiles */ = {
+		0AB6E25B2073859C001ABF3A /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -24,15 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CliniqueManagement; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A77CBCB206FAE5000F2B3AF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0A77CBD2206FAE7100F2B3AF /* CliniqueManagement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CliniqueManagement.json; sourceTree = "<group>"; };
-		0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CliniqueOperations.swift; sourceTree = "<group>"; };
-		0AB6E27A2073AF16001ABF3A /* Appointement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Appointement.json; sourceTree = "<group>"; };
+		0AB6E25D2073859C001ABF3A /* DeckOfCards */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DeckOfCards; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AB6E2602073859C001ABF3A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A77CBC5206FAE5000F2B3AF /* Frameworks */ = {
+		0AB6E25A2073859C001ABF3A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,100 +38,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A77CBBF206FAE5000F2B3AF = {
+		0AB6E2542073859C001ABF3A = {
 			isa = PBXGroup;
 			children = (
-				0A77CBCA206FAE5000F2B3AF /* CliniqueManagement */,
-				0A77CBC9206FAE5000F2B3AF /* Products */,
+				0AB6E25F2073859C001ABF3A /* DeckOfCards */,
+				0AB6E25E2073859C001ABF3A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A77CBC9206FAE5000F2B3AF /* Products */ = {
+		0AB6E25E2073859C001ABF3A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */,
+				0AB6E25D2073859C001ABF3A /* DeckOfCards */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A77CBCA206FAE5000F2B3AF /* CliniqueManagement */ = {
+		0AB6E25F2073859C001ABF3A /* DeckOfCards */ = {
 			isa = PBXGroup;
 			children = (
-				0A77CBCB206FAE5000F2B3AF /* main.swift */,
-				0AB6E27A2073AF16001ABF3A /* Appointement.json */,
-				0A77CBD2206FAE7100F2B3AF /* CliniqueManagement.json */,
-				0A77CBD3206FAE9600F2B3AF /* CliniqueOperations.swift */,
+				0AB6E2602073859C001ABF3A /* main.swift */,
 			);
-			path = CliniqueManagement;
+			path = DeckOfCards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A77CBC7206FAE5000F2B3AF /* CliniqueManagement */ = {
+		0AB6E25C2073859C001ABF3A /* DeckOfCards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A77CBCF206FAE5000F2B3AF /* Build configuration list for PBXNativeTarget "CliniqueManagement" */;
+			buildConfigurationList = 0AB6E2642073859C001ABF3A /* Build configuration list for PBXNativeTarget "DeckOfCards" */;
 			buildPhases = (
-				0A77CBC4206FAE5000F2B3AF /* Sources */,
-				0A77CBC5206FAE5000F2B3AF /* Frameworks */,
-				0A77CBC6206FAE5000F2B3AF /* CopyFiles */,
+				0AB6E2592073859C001ABF3A /* Sources */,
+				0AB6E25A2073859C001ABF3A /* Frameworks */,
+				0AB6E25B2073859C001ABF3A /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CliniqueManagement;
-			productName = CliniqueManagement;
-			productReference = 0A77CBC8206FAE5000F2B3AF /* CliniqueManagement */;
+			name = DeckOfCards;
+			productName = DeckOfCards;
+			productReference = 0AB6E25D2073859C001ABF3A /* DeckOfCards */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A77CBC0206FAE5000F2B3AF /* Project object */ = {
+		0AB6E2552073859C001ABF3A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = BridgeLabz;
 				TargetAttributes = {
-					0A77CBC7206FAE5000F2B3AF = {
+					0AB6E25C2073859C001ABF3A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 0A77CBC3206FAE5000F2B3AF /* Build configuration list for PBXProject "CliniqueManagement" */;
+			buildConfigurationList = 0AB6E2582073859C001ABF3A /* Build configuration list for PBXProject "DeckOfCards" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0A77CBBF206FAE5000F2B3AF;
-			productRefGroup = 0A77CBC9206FAE5000F2B3AF /* Products */;
+			mainGroup = 0AB6E2542073859C001ABF3A;
+			productRefGroup = 0AB6E25E2073859C001ABF3A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A77CBC7206FAE5000F2B3AF /* CliniqueManagement */,
+				0AB6E25C2073859C001ABF3A /* DeckOfCards */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A77CBC4206FAE5000F2B3AF /* Sources */ = {
+		0AB6E2592073859C001ABF3A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A77CBCC206FAE5000F2B3AF /* main.swift in Sources */,
-				0A77CBD4206FAE9600F2B3AF /* CliniqueOperations.swift in Sources */,
+				0AB6E2612073859C001ABF3A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0A77CBCD206FAE5000F2B3AF /* Debug */ = {
+		0AB6E2622073859C001ABF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -192,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		0A77CBCE206FAE5000F2B3AF /* Release */ = {
+		0AB6E2632073859C001ABF3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -241,7 +233,7 @@
 			};
 			name = Release;
 		};
-		0A77CBD0206FAE5000F2B3AF /* Debug */ = {
+		0AB6E2652073859C001ABF3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -250,7 +242,7 @@
 			};
 			name = Debug;
 		};
-		0A77CBD1206FAE5000F2B3AF /* Release */ = {
+		0AB6E2662073859C001ABF3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -262,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A77CBC3206FAE5000F2B3AF /* Build configuration list for PBXProject "CliniqueManagement" */ = {
+		0AB6E2582073859C001ABF3A /* Build configuration list for PBXProject "DeckOfCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A77CBCD206FAE5000F2B3AF /* Debug */,
-				0A77CBCE206FAE5000F2B3AF /* Release */,
+				0AB6E2622073859C001ABF3A /* Debug */,
+				0AB6E2632073859C001ABF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A77CBCF206FAE5000F2B3AF /* Build configuration list for PBXNativeTarget "CliniqueManagement" */ = {
+		0AB6E2642073859C001ABF3A /* Build configuration list for PBXNativeTarget "DeckOfCards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A77CBD0206FAE5000F2B3AF /* Debug */,
-				0A77CBD1206FAE5000F2B3AF /* Release */,
+				0AB6E2652073859C001ABF3A /* Debug */,
+				0AB6E2662073859C001ABF3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A77CBC0206FAE5000F2B3AF /* Project object */;
+	rootObject = 0AB6E2552073859C001ABF3A /* Project object */;
 }

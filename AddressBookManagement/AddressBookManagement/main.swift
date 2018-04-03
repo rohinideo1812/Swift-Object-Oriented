@@ -10,7 +10,10 @@
 
 import Foundation
 var object = AddressBookOperation()
+var choice = 0
+repeat{
 print("Enter your choice\n1-Add\n2-Edit\n3-Delete\n4-ShowList")
-var choice = object.acceptInputInt()
+choice = object.acceptInputInt()
 object.acceptChoice(choice: choice)
+}while choice < 5
 

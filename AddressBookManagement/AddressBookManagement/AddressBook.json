@@ -1,1 +1,20 @@
-
+[
+  {
+    "state" : "a",
+    "city" : "a",
+    "firstname" : "a",
+    "lastname" : "a",
+    "zip" : 111111,
+    "address" : "a",
+    "telephone" : 1111111111
+  },
+  {
+    "state" : "d",
+    "city" : "d",
+    "firstname" : "d",
+    "lastname" : "d",
+    "zip" : 444444,
+    "address" : "d",
+    "telephone" : 4444444444
+  }
+]

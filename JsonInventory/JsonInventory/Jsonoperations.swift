@@ -30,12 +30,16 @@ class JSONOperation{
     }
     func writeToJSONFile(path:String){
         //Write to JSON File
-        if let file:FileHandle = FileHandle(forWritingAtPath: path){
-            if let jsonData = try? JSONSerialization.data(withJSONObject: array, options: .prettyPrinted){
+        var array1:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+        array1.append(json2)
+        if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
+            file.truncateFile(atOffset: 0)
+            if let jsonData = try? JSONSerialization.data(withJSONObject: array1, options: .prettyPrinted){
                 file.write(jsonData)
             }
             file.closeFile()
         }
+    
     }
     
     func writeToJSONFile1(path:String){
@@ -46,7 +50,8 @@ class JSONOperation{
                                              "education":"BE Computer"]
         var array1:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
         array1.append(json1)
-        if let file:FileHandle = FileHandle(forWritingAtPath: path){
+        if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
+            file.truncateFile(atOffset: 0)
             if let jsonData = try? JSONSerialization.data(withJSONObject: array1, options: .prettyPrinted){
                 file.write(jsonData)
             }
@@ -54,5 +59,5 @@ class JSONOperation{
         }
     }
     
-}
 
+}
