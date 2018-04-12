@@ -34,12 +34,13 @@ class CliniqueManagement{
     }
     
     let path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManagement/CliniqueManagement/CliniqueManagement.json"
-    var doctor:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+    let path1 = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManagement/CliniqueManagement/Appointement.json"
+   var doctor:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
     var array:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
     var searchdoctorid:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
     var patient:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
-    var array1:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
-    var appointement:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+   var finalarray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
+   var appointementarray:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
     func cliniqueManagement(){
         print("DOCTOR")
         print("How many number of doctors")
@@ -53,10 +54,11 @@ class CliniqueManagement{
             print("Enter the Availability")
             let availability = acceptInputString()
             let doctorDetail:Dictionary<String,Any> = [
-                "id" : doctorid,
                 "name": name,
+                "id" : doctorid,
                 "specialization": specialization,
                 "availability": availability
+                
             ]
             doctor.append(doctorDetail)
             doctorid+=1
@@ -86,8 +88,8 @@ class CliniqueManagement{
             print("Enter the Disease")
             let disease = acceptInputString()
             let patientDetail:Dictionary<String,Any> = [
-                "id" : patientid,
                 "name": name,
+                "id" : patientid,
                 "mobile" : mobileno,
                 "disease": disease,
                 "age" : age
@@ -99,8 +101,7 @@ class CliniqueManagement{
         }
         var patientdoctor:Dictionary<String,Any> = ["Doctor" : doctor,
                                                     "Patient" : patient
-            
-                                                   ]
+                                                    ]
         if let file:FileHandle = FileHandle(forWritingAtPath: path){
             if let jsonData = try? JSONSerialization.data(withJSONObject: patientdoctor, options: .prettyPrinted){
                 file.write(jsonData)
@@ -155,68 +156,113 @@ class CliniqueManagement{
         print(searchpatientid)
         case 2 :print("Enter the name of a patient")
         let name = acceptInputString()
-        let searchpatientname = objPatient.filter({$0["name"] as! String == name })
+        let searchpatientname = objPatient.filter({$0["name"] as! String == name})
         print(searchpatientname)
         default : print("Invalid input")
         }
-        for _ in 0..<no{
-        print("Take Appointement")
         var identity = 1
         for _ in 0..<no{
-        print("patient with id \(identity)-")
-        print("Enter the name of Doctor whose appointement is required")
+        print("Patient with id  \(identity) enter the name of doctor")
         let name = acceptInputString()
         print("Enter the availability")
         let availability = acceptInputString()
-        let check = objDoctor.filter({$0["name"] as! String == name})
-        for c in check{
-        if let checkname = c["name"] as? String{
-    var appointementdictionary:Dictionary<String,Any> = ["Doctor" : name ,
-                                                        "patientwithid" :identity
-                                                        ]
-         appointement.append(appointementdictionary)
-         
-
-    patientdoctor.merge(zip(["checkname", "Appointement"], [3, appointement])) { (current, _) in current }
-            
-
-                        }
-        }
+        print("Enter the date")
+        let date = acceptInputString()
+            for obj in objDoctor{
+            let availname = objDoctor.filter({$0["name"] as? String == name })
+                    print(availname)
+                for obj1 in availname{
+                    
+                    }
+                    
+                }
+                
             }
-            print(patientdoctor)
-          
-//        print("Take Appointement")
-//        for _ in 0..<no{
+            
+            }
+           
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+            
+            
+            
+            
+            
+            
+            //            if  let availname ]: [Dictionary<String, Any>] = objDoctor.filter({$0["name"] as? String == name}){
+//                print(availname)
+//                if let doctoravail : [Dictionary<String, Any>] = availname.filter({$0["availability"] as? String == availability}){
+//                    print(doctoravail)
+//                    break
+//                }
 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            let appointement:Dictionary<String,Any> = ["Doctor" : name,
+//                                                       "Patientid" : identity,
+//                                                       "Date" : date
+//                                                      ]
+//            print(appointement)
+//            identity = identity + 1
+//            if let file:FileHandle = FileHandle(forReadingAtPath: path){
+//                if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
+//                    if let jsonobj = json {
+//                    for d in jsonobj{
+//                        finalarray.append(d as Dictionary<String,Any>)
+//                    }
+//                            }
+//                }
+//                file.closeFile()
+//            }
+//            finalarray.append(appointement)
 //
 //        }
-//    }
-            }
-//        guard let doctorname : [Dictionary<String, Any>] = objDoctor.filter({$0["name"] as! String == name }) else{
-//                print("Invalid name")
+//        print(finalarray)
+//       if let file:FileHandle = FileHandle(forWritingAtPath: path1){
+//        if let jsonData = try? JSONSerialization.data(withJSONObject:finalarray, options: .prettyPrinted){
+//                    file.write(jsonData)
+//                }
+//                file.closeFile()
 //            }
-            
-            }
-
-
-//var array1 = [["id":"1","color":"orange"], ["id":"2","color":"red"]]
-//var array2 = [["id":"1","fruit":"pumpkin"], ["id":"2","fruit":"strawberry"]]
 //
-//for (index, item) in array1.enumerated() {
-//    if let filtered = array2.first(where: {$0["id"]! == item["id"]! }) {
-//        array1[index].merge(filtered) { (current, _) in current }
-//    }
+//        finalarray.removeAll()
+//           }
+//        }
+//}
 //}
 //
-//print(array1)
+//
+//
 
-
-
-
-
-
-}
-
-
+            
+//            guard let index = editarray.index(where: {$0["telephone"] as! Int == telephone}) else{
+//                return
+//            }
+//            print(index)
+            
+            
 
 

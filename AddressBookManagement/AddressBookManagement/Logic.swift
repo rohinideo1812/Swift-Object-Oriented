@@ -108,6 +108,7 @@ class AddressBookOperation{
         let telephone = acceptInputInt()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
+                print(json)
                 for d in json!{
                     editarray.append(d as Dictionary<String,Any>)
                 }
@@ -179,7 +180,7 @@ class AddressBookOperation{
 
    func deleteInfo(){
     deletearray.removeAll()
-        print("Enter the Telephone number of a person who is to be deleted")
+    print("Enter the Telephone number of a person who is to be deleted")
     let telephone = acceptInputInt()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
@@ -210,6 +211,7 @@ class AddressBookOperation{
          array1.removeAll()
         if let file:FileHandle = FileHandle(forReadingAtPath: path){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
+                print(json)
                 for d in json!{
                     array1.append(d as Dictionary<String,Any>)
                 }

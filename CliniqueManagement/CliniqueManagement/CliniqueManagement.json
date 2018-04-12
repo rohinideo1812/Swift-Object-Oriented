@@ -1,1 +1,39 @@
-
+{
+  "Doctor" : [
+    {
+      "name" : "a",
+      "specialization" : "a",
+      "id" : 1,
+      "availability" : "a"
+    },
+    {
+      "name" : "b",
+      "specialization" : "b",
+      "id" : 2,
+      "availability" : "b"
+    }
+  ],
+  "Patient" : [
+    {
+      "name" : "a",
+      "disease" : "a",
+      "age" : 1,
+      "id" : 1,
+      "mobile" : 1111111111
+    },
+    {
+      "name" : "b",
+      "disease" : "b",
+      "age" : 2,
+      "id" : 2,
+      "mobile" : 2222222222
+    },
+    {
+      "name" : "c",
+      "disease" : "c",
+      "age" : 3,
+      "id" : 3,
+      "mobile" : 3333333333
+    }
+  ]
+}
