@@ -1,21 +1,21 @@
-//
-//  AddressManager.swift
-//  AddressBookManager
-//
-//  Created by BridgeLabz on 09/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
+/******************************************************************************
+ *  Purpose: Address Book Manager Operations.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   12-04-2018
+ *
+ ******************************************************************************/
 import Foundation
 class AddressBookManager{
+    var mOperationPath = ""
     var addressbook:AddressBook?
-    let msg = "Invalid Input"
+    let mMsg = "Invalid Input"
     var fileArray = [String]()
-    var personList = [Person]()
     func acceptInputInt()->Int{
-        if let value = readLine(){
-            if let input = Int(value){
-                return input
+        if let lValue = readLine(){
+            if let lInput = Int(lValue){
+                return lInput
             }
             else{
                 print("Invalid Input")
@@ -23,25 +23,29 @@ class AddressBookManager{
         }
         return 1
     }
-
-    func operations(){
-    
-    }
+    /**
+     * Function for Creating Address Book
+     *
+     */
     func createAddressBook(){
         print("Enter the file name")
-        guard let fileName = readLine() else{
-            fatalError(msg)
+        guard let lFileName = readLine() else{
+            fatalError(mMsg)
             }
-        let path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(fileName).json"
-        if FileManager().createFile(atPath: path, contents: nil, attributes: nil){
+        let lPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(lFileName).json"
+        if FileManager().createFile(atPath: lPath, contents: nil, attributes: nil){
             print("File is created")
            
         }
     }
+    /**
+     * Function for Opening Address Book
+     *
+     */
         func openAddressBook(){
-            let path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files"
+            let lPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files"
             do{
-            fileArray = try FileManager().contentsOfDirectory(atPath: path)
+            fileArray = try FileManager().contentsOfDirectory(atPath: lPath)
                 for i in 0..<fileArray.count{
                     print(fileArray[i])
                 }
@@ -50,58 +54,40 @@ class AddressBookManager{
                 print("Not Found")
             }
             print("Enter the name of a file to be opened")
-            guard let fileName = readLine() else{
-                fatalError(msg)
+            guard let lFileName = readLine() else{
+                fatalError(mMsg)
             }
-            _ = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(fileName).json"
-        let isExists = FileManager().fileExists(atPath: path)
+            mOperationPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(lFileName).json"
+        let isExists = FileManager().fileExists(atPath: mOperationPath)
             if isExists == true{
-                AddressBook(path: path)
+                AddressBook(path: mOperationPath)
             }else{
-                let path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(fileName).json"
-                if FileManager().createFile(atPath: path, contents: nil, attributes: nil){
-                    print("File with \(fileName) does not exists so file with this name is created")
+                 mOperationPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(lFileName).json"
+                if FileManager().createFile(atPath: mOperationPath, contents: nil, attributes: nil){
+                    print("File with \(lFileName) does not exists so file with this name is created")
                 }
             }
-
-   
     }
-        func saveAddressBook(){
-
-//            var fetchedList = [Person]()
-//            if let fetchedList =  addressbook?.returnPersonList(){
-//                print(fetchedList)
-//                if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
-//                    file.truncateFile(atOffset: 0)
-//                    if let jsonData = try? JSONSerialization.data(withJSONObject: fetchedList, options: .prettyPrinted){
-//                        file.write(jsonData)
-//                    }
-//                    file.closeFile()
-//                }
-//            }
-//
+    /**
+     * Function for Saving Data Of Address Book To File
+     *
+     */
+    func saveAddressBook(){
+            addressbook?.writeDataToFile(path: mOperationPath)
         }
+    /**
+     * Function for Saving Data Of Address Book To New File
+     *
+     */
         func saveAsAddressBook(){
             print("Enter the file name")
-            guard let fileName = readLine() else{
-                fatalError(msg)
+            guard let lFileName = readLine() else{
+                fatalError(mMsg)
             }
-            let path = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(fileName).json"
-            if FileManager().createFile(atPath: path, contents: nil, attributes: nil){
+            let lPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files/\(lFileName).json"
+            if FileManager().createFile(atPath: lPath, contents: nil, attributes: nil){
                 print("File is created")
-
             }
-            var fetchedList = [Person]()
-            if let fetchedList =  addressbook?.returnPersonList(){
-                print(fetchedList)
-                if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
-                    file.truncateFile(atOffset: 0)
-                    if let jsonData = try? JSONSerialization.data(withJSONObject: fetchedList, options: .prettyPrinted){
-                        file.write(jsonData)
-                    }
-                    file.closeFile()
-                }
-            }
-      }
+            addressbook?.writeDataToFile(path: lPath)
+    }
 }
-

@@ -1,24 +1,29 @@
-//
-//  AddressBook.swift
-//  AddressBookManager
-//  Created by BridgeLabz on 09/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
+/******************************************************************************
+ *  Purpose: Address Book Operations.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   12-04-2018
+ *
+ ******************************************************************************/
 import Foundation
 class AddressBook{
-    let path : String?
+    let mPath : String?
     var personList = [Person]()
      var sortList = [Person]()
     var streamArray: Array<Data> = Array()
 
-    let msg = "Invalid Input"
+    let mMsg = "Invalid Input"
     init(path : String){
-    self.path = path
+    self.mPath = path
     readDataFromFile(path1: path)
-
+    writeDataToFile(path: path)
 
     }
+    /**
+     * Function for Reading Data From File
+     *
+     */
     func readDataFromFile(path1 : String){
         if let file:FileHandle = FileHandle(forReadingAtPath: path1){
             if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
@@ -35,8 +40,12 @@ class AddressBook{
         }
         operations()
     }
+    /**
+     * Function for Writing Data To File
+     *
+     */
     func writeDataToFile(path : String){
-       
+
         var arrayOfDict:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
 
         for i in personList{
@@ -53,15 +62,19 @@ class AddressBook{
             print("Fail to cast")
             return
         }
-        
+
         if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
             file.truncateFile(atOffset: 0)
             file.write(jsonData)
             file.closeFile()
         }
-        
+
 
     }
+    /**
+     * Function for Accepting Input From User
+     *
+     */
     func acceptInputInt()->Int{
         if let value = readLine(){
             if let input = Int(value){
@@ -73,11 +86,16 @@ class AddressBook{
         }
         return 1
     }
+    /**
+     * Function for Performing Operations on AddressBook
+     *
+     */
     func operations(){
+        defer{
         print("Choose Operations You want to perform")
         print("1:Add Details Of Person\n2:Edit Details Of Person\n3:Delete Details Of Person\n4:sort Details Of Person By Name\n5:Sort Details Of Person By Zip\n6:Print the AddressBook")
-        let choice = acceptInputInt()
-        switch choice{
+        let lChoice = acceptInputInt()
+        switch lChoice{
         case 1 : add()
         case 2 : edit()
         case 3 : delete()
@@ -87,82 +105,90 @@ class AddressBook{
         default : print("Invalid Input")
         }
     }
+    }
+    /**
+     * Function for Adding Data To Address Book
+     *
+     */
     func add(){
-        
+        defer{
         print("Enter the number of times")
-        let number = acceptInputInt()
-        for _ in 0..<number{
+        let lNumber = acceptInputInt()
+        for _ in 0..<lNumber{
         print("Enter the First name")
-        guard let firstName = readLine() else{
-        fatalError(msg)
+        guard let lFirstName = readLine() else{
+        fatalError(mMsg)
         }
         print("Enter the Lastname")
-        guard let lastName = readLine() else{
-            fatalError(msg)
+        guard let lLastName = readLine() else{
+            fatalError(mMsg)
         }
         print("Enter the Address")
-        guard let address1 = readLine() else{
-            fatalError(msg)
+        guard let lAddress1 = readLine() else{
+            fatalError(mMsg)
         }
         print("Enter the State")
-        guard let state = readLine() else{
-            fatalError(msg)
+        guard let lState = readLine() else{
+            fatalError(mMsg)
         }
         print("Enter the City")
-        guard let city = readLine() else{
-            fatalError(msg)
+        guard let lCity = readLine() else{
+            fatalError(mMsg)
         }
         
         print("Enter the Zip code")
-        guard let zip = readLine() else{
-            fatalError(msg)
+        guard let lZip = readLine() else{
+            fatalError(mMsg)
         }
         print("Enter the Telephone Number")
-        guard let telephone = readLine() else{
-            fatalError(msg)
+        guard let lTelephone = readLine() else{
+            fatalError(mMsg)
         }
-        let address = Address(state: state, zip: Int(zip)!, address: address1, city: city)
-            let person = Person(firstName: firstName, lastName: lastName, telephoneNumber: Int(telephone)!, address: address)
+        let address = Address(state: lState, zip: Int(lZip)!, address: lAddress1, city: lCity)
+            let person = Person(firstName: lFirstName, lastName: lLastName, telephoneNumber: Int(lTelephone)!, address: address)
             
         personList.append(person)
-            print(personList.count)
-
             
     }
     }
+    }
+    /**
+     * Function for Editing Data Of Address Book
+     *
+     */
     func edit(){
+        defer{
         print("Enter the first name of a person whose info is to be edited")
-        guard let name = readLine() else{
-            fatalError(msg)
+        guard let lName = readLine() else{
+            fatalError(mMsg)
         }
-        if let obj = personList.first(where : {$0.firstName == name}){
+        if let obj = personList.first(where : {$0.firstName == lName}){
             print("Enter the Address")
-            guard let address1 = readLine() else{
-                fatalError(msg)
+            guard let lAddress1 = readLine() else{
+                fatalError(mMsg)
             }
             print("Enter the State")
-            guard let state = readLine() else{
-                fatalError(msg)
+            guard let lState = readLine() else{
+                fatalError(mMsg)
             }
             print("Enter the City")
-            guard let city = readLine() else{
-                fatalError(msg)
+            guard let lCity = readLine() else{
+                fatalError(mMsg)
             }
 
             print("Enter the Zip code")
-            guard let zip = readLine() else{
-                fatalError(msg)
+            guard let lZip = readLine() else{
+                fatalError(mMsg)
             }
             print("Enter the Telephone Number")
-            guard let telephone = readLine() else{
-                fatalError(msg)
+            guard let lTelephone = readLine() else{
+                fatalError(mMsg)
             }
-            obj.address?.city = city
-            obj.address?.state = state
-            obj.address?.zip = Int(zip)!
-            obj.address?.address = address1
-            obj.telephoneNumber = Int(telephone)!
-            print(personList.count)
+            obj.address?.city = lCity
+            obj.address?.state = lState
+            obj.address?.zip = Int(lZip)!
+            obj.address?.address = lAddress1
+            obj.telephoneNumber = Int(lTelephone)!
 
         }
         else{
@@ -170,13 +196,18 @@ class AddressBook{
         }
  
     }
+    }
+    /**
+     * Function for Deleting Data From Address Book
+     *
+     */
     func delete(){
         print("Enter the first name of a person whose info is to be deleted")
-        guard let name = readLine() else{
-            fatalError(msg)
+        guard let lName = readLine() else{
+            fatalError(mMsg)
         }
-        if personList.first(where : {$0.firstName == name}) != nil{
-            if let index = personList.index(where : {$0.firstName == name}){
+        if personList.first(where : {$0.firstName == lName}) != nil{
+            if let index = personList.index(where : {$0.firstName == lName}){
             personList.remove(at: index)
                 
             }
@@ -186,6 +217,10 @@ class AddressBook{
         
        
 }
+    /**
+     * Function for Sorting Data Of Address Book By Zip
+     *
+     */
     func sortByZip(){
 
   let sortList =   personList.sorted(by: {String(describing: $0.address?.zip!).compare(String(describing: $1.address?.zip!)) == .orderedAscending})
@@ -193,6 +228,10 @@ class AddressBook{
         personList = sortList
         
     }
+    /**
+     * Function for Sorting Data Of Address Book By Name
+     *
+     */
     func sortByName(){
         print("Sorted by name")
         let sortList = personList.sorted(by: {$0.firstName!.compare($1.firstName!) == .orderedAscending})
@@ -200,38 +239,40 @@ class AddressBook{
         
        
     }
-    func returnPersonList()->[Person]{
-        return personList
-    }
+    /**
+     * Function for Printing Data Of Address Book 
+     *
+     */
     func show(){
         for i in 0..<personList.count{
-            guard let getFirstName = personList[i].firstName else{
+            guard let lGetFirstName = personList[i].firstName else{
                 break
                 
             }
-            guard let getLastName = personList[i].lastName else{
+            guard let lGetLastName = personList[i].lastName else{
                 break
                 
             }
-            guard let getTelephone = personList[i].telephoneNumber else{
+            guard let lGetTelephone = personList[i].telephoneNumber else{
                 break
                 
             }
-            guard let getAddress = personList[i].address?.address else{                    break
+            guard let lGetAddress = personList[i].address?.address else{                    break
                 
             }
-            guard let getzip = personList[i].address?.zip else{
+            guard let lGetzip = personList[i].address?.zip else{
                 break
                 
             }
-            guard let getstate = personList[i].address?.state else{
+            guard let lGetstate = personList[i].address?.state else{
                 break
                 
             }
-            guard let getcity = personList[i].address?.city else{
+            guard let lGetcity = personList[i].address?.city else{
                 break
             }
-            print("Name : \(getFirstName) \(getLastName)\nMob:\(getTelephone) \nAddress:\(getAddress)\nCity:\(getcity) - \(getzip)\nState:\(getstate)")
+            print("----------------------------------------------\n")
+            print("Name : \(lGetFirstName) \(lGetLastName)\nMob:\(lGetTelephone) \nAddress:\(lGetAddress)\nCity:\(lGetcity) - \(lGetzip)\nState:\(lGetstate)\n")
 
                                     }
 

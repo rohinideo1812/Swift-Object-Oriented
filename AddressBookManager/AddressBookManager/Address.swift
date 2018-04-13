@@ -1,11 +1,11 @@
-//
-//  Address.swift
-//  AddressBookManager
-//
-//  Created by BridgeLabz on 09/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
+/******************************************************************************
+ *  Purpose:  Address Class.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   12-04-2018
+ *
+ ******************************************************************************/
 import Foundation
 class Address : Codable{
     public var state : String?

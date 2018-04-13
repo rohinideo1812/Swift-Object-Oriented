@@ -1,0 +1,13 @@
+[
+  {
+    "lastName" : "Mandalkar",
+    "firstName" : "Rahul",
+    "telephoneNumber" : 9860616030,
+    "address" : {
+      "state" : "Maharashtra",
+      "zip" : 122333,
+      "city" : "Nashik",
+      "address" : "Vani"
+    }
+  }
+]

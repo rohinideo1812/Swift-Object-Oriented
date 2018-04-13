@@ -7,15 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A387EAE207B2789001659CF /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387EAD207B2789001659CF /* main.swift */; };
-		0A387EB5207B27A5001659CF /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387EB4207B27A5001659CF /* Address.swift */; };
-		0A387EB7207B27B3001659CF /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387EB6207B27B3001659CF /* Person.swift */; };
-		0A387EB9207B7B87001659CF /* AddressBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387EB8207B7B87001659CF /* AddressBook.swift */; };
-		0A387ED2207B8661001659CF /* AddressManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A387ED1207B8661001659CF /* AddressManager.swift */; };
+		0ABEC6FD2080870D00CDADAB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC6FC2080870D00CDADAB /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0A387EA8207B2788001659CF /* CopyFiles */ = {
+		0ABEC6F72080870D00CDADAB /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -27,16 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A387EAA207B2789001659CF /* AddressBookManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AddressBookManager; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A387EAD207B2789001659CF /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		0A387EB4207B27A5001659CF /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		0A387EB6207B27B3001659CF /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		0A387EB8207B7B87001659CF /* AddressBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBook.swift; sourceTree = "<group>"; };
-		0A387ED1207B8661001659CF /* AddressManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManager.swift; sourceTree = "<group>"; };
+		0ABEC6F92080870D00CDADAB /* CliniqueManager */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CliniqueManager; sourceTree = BUILT_PRODUCTS_DIR; };
+		0ABEC6FC2080870D00CDADAB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0A387EA7207B2788001659CF /* Frameworks */ = {
+		0ABEC6F62080870D00CDADAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,104 +38,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A387EA1207B2788001659CF = {
+		0ABEC6F02080870D00CDADAB = {
 			isa = PBXGroup;
 			children = (
-				0A387EAC207B2789001659CF /* AddressBookManager */,
-				0A387EAB207B2789001659CF /* Products */,
+				0ABEC6FB2080870D00CDADAB /* CliniqueManager */,
+				0ABEC6FA2080870D00CDADAB /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		0A387EAB207B2789001659CF /* Products */ = {
+		0ABEC6FA2080870D00CDADAB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A387EAA207B2789001659CF /* AddressBookManager */,
+				0ABEC6F92080870D00CDADAB /* CliniqueManager */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0A387EAC207B2789001659CF /* AddressBookManager */ = {
+		0ABEC6FB2080870D00CDADAB /* CliniqueManager */ = {
 			isa = PBXGroup;
 			children = (
-				0A387EAD207B2789001659CF /* main.swift */,
-				0A387EB4207B27A5001659CF /* Address.swift */,
-				0A387EB6207B27B3001659CF /* Person.swift */,
-				0A387EB8207B7B87001659CF /* AddressBook.swift */,
-				0A387ED1207B8661001659CF /* AddressManager.swift */,
+				0ABEC6FC2080870D00CDADAB /* main.swift */,
 			);
-			path = AddressBookManager;
+			path = CliniqueManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A387EA9207B2788001659CF /* AddressBookManager */ = {
+		0ABEC6F82080870D00CDADAB /* CliniqueManager */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A387EB1207B2789001659CF /* Build configuration list for PBXNativeTarget "AddressBookManager" */;
+			buildConfigurationList = 0ABEC7002080870D00CDADAB /* Build configuration list for PBXNativeTarget "CliniqueManager" */;
 			buildPhases = (
-				0A387EA6207B2788001659CF /* Sources */,
-				0A387EA7207B2788001659CF /* Frameworks */,
-				0A387EA8207B2788001659CF /* CopyFiles */,
+				0ABEC6F52080870D00CDADAB /* Sources */,
+				0ABEC6F62080870D00CDADAB /* Frameworks */,
+				0ABEC6F72080870D00CDADAB /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AddressBookManager;
-			productName = AddressBookManager;
-			productReference = 0A387EAA207B2789001659CF /* AddressBookManager */;
+			name = CliniqueManager;
+			productName = CliniqueManager;
+			productReference = 0ABEC6F92080870D00CDADAB /* CliniqueManager */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		0A387EA2207B2788001659CF /* Project object */ = {
+		0ABEC6F12080870D00CDADAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = BridgeLabz;
 				TargetAttributes = {
-					0A387EA9207B2788001659CF = {
+					0ABEC6F82080870D00CDADAB = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 0A387EA5207B2788001659CF /* Build configuration list for PBXProject "AddressBookManager" */;
+			buildConfigurationList = 0ABEC6F42080870D00CDADAB /* Build configuration list for PBXProject "CliniqueManager" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 0A387EA1207B2788001659CF;
-			productRefGroup = 0A387EAB207B2789001659CF /* Products */;
+			mainGroup = 0ABEC6F02080870D00CDADAB;
+			productRefGroup = 0ABEC6FA2080870D00CDADAB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A387EA9207B2788001659CF /* AddressBookManager */,
+				0ABEC6F82080870D00CDADAB /* CliniqueManager */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0A387EA6207B2788001659CF /* Sources */ = {
+		0ABEC6F52080870D00CDADAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A387EB7207B27B3001659CF /* Person.swift in Sources */,
-				0A387EB9207B7B87001659CF /* AddressBook.swift in Sources */,
-				0A387EB5207B27A5001659CF /* Address.swift in Sources */,
-				0A387EAE207B2789001659CF /* main.swift in Sources */,
-				0A387ED2207B8661001659CF /* AddressManager.swift in Sources */,
+				0ABEC6FD2080870D00CDADAB /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0A387EAF207B2789001659CF /* Debug */ = {
+		0ABEC6FE2080870D00CDADAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,7 +184,7 @@
 			};
 			name = Debug;
 		};
-		0A387EB0207B2789001659CF /* Release */ = {
+		0ABEC6FF2080870D00CDADAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -249,7 +233,7 @@
 			};
 			name = Release;
 		};
-		0A387EB2207B2789001659CF /* Debug */ = {
+		0ABEC7012080870D00CDADAB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -258,7 +242,7 @@
 			};
 			name = Debug;
 		};
-		0A387EB3207B2789001659CF /* Release */ = {
+		0ABEC7022080870D00CDADAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -270,25 +254,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A387EA5207B2788001659CF /* Build configuration list for PBXProject "AddressBookManager" */ = {
+		0ABEC6F42080870D00CDADAB /* Build configuration list for PBXProject "CliniqueManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A387EAF207B2789001659CF /* Debug */,
-				0A387EB0207B2789001659CF /* Release */,
+				0ABEC6FE2080870D00CDADAB /* Debug */,
+				0ABEC6FF2080870D00CDADAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A387EB1207B2789001659CF /* Build configuration list for PBXNativeTarget "AddressBookManager" */ = {
+		0ABEC7002080870D00CDADAB /* Build configuration list for PBXNativeTarget "CliniqueManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0A387EB2207B2789001659CF /* Debug */,
-				0A387EB3207B2789001659CF /* Release */,
+				0ABEC7012080870D00CDADAB /* Debug */,
+				0ABEC7022080870D00CDADAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 0A387EA2207B2788001659CF /* Project object */;
+	rootObject = 0ABEC6F12080870D00CDADAB /* Project object */;
 }
