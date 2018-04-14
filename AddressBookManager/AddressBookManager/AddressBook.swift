@@ -62,14 +62,11 @@ class AddressBook{
             print("Fail to cast")
             return
         }
-
         if let file:FileHandle = FileHandle(forUpdatingAtPath: path){
             file.truncateFile(atOffset: 0)
             file.write(jsonData)
             file.closeFile()
         }
-
-
     }
     /**
      * Function for Accepting Input From User
@@ -91,9 +88,11 @@ class AddressBook{
      *
      */
     func operations(){
-        defer{
+        var lFlag = true
+        repeat{
         print("Choose Operations You want to perform")
-        print("1:Add Details Of Person\n2:Edit Details Of Person\n3:Delete Details Of Person\n4:sort Details Of Person By Name\n5:Sort Details Of Person By Zip\n6:Print the AddressBook")
+        print("1:Add Details Of Person\n2:Edit Details Of Person\n3:Delete Details Of Person\n4:sort Details Of Person By Name\n5:Sort Details Of Person By Zip\n6:Print the AddressBook\n7-Exit")
+     
         let lChoice = acceptInputInt()
         switch lChoice{
         case 1 : add()
@@ -102,16 +101,16 @@ class AddressBook{
         case 4 : sortByName()
         case 5 : sortByZip()
         case 6 : show()
+        case 7 : lFlag = false
         default : print("Invalid Input")
         }
-    }
+    } while lFlag
     }
     /**
      * Function for Adding Data To Address Book
      *
      */
     func add(){
-        defer{
         print("Enter the number of times")
         let lNumber = acceptInputInt()
         for _ in 0..<lNumber{
@@ -148,8 +147,8 @@ class AddressBook{
             let person = Person(firstName: lFirstName, lastName: lLastName, telephoneNumber: Int(lTelephone)!, address: address)
             
         personList.append(person)
-            
-    }
+        print("Addition SuccessFull")
+
     }
     }
     /**
@@ -157,7 +156,6 @@ class AddressBook{
      *
      */
     func edit(){
-        defer{
         print("Enter the first name of a person whose info is to be edited")
         guard let lName = readLine() else{
             fatalError(mMsg)
@@ -189,13 +187,14 @@ class AddressBook{
             obj.address?.zip = Int(lZip)!
             obj.address?.address = lAddress1
             obj.telephoneNumber = Int(lTelephone)!
+            print("Edition SuccessFull")
 
         }
         else{
             print("Not Found")
         }
- 
-    }
+
+    
     }
     /**
      * Function for Deleting Data From Address Book
@@ -209,13 +208,12 @@ class AddressBook{
         if personList.first(where : {$0.firstName == lName}) != nil{
             if let index = personList.index(where : {$0.firstName == lName}){
             personList.remove(at: index)
-                
+            print("Deletion SuccessFull")
+
             }
         }else{
             print("Not Found")
         }
-        
-       
 }
     /**
      * Function for Sorting Data Of Address Book By Zip
@@ -226,7 +224,8 @@ class AddressBook{
   let sortList =   personList.sorted(by: {String(describing: $0.address?.zip!).compare(String(describing: $1.address?.zip!)) == .orderedAscending})
         
         personList = sortList
-        
+        print("Sort SuccessFull")
+        show()
     }
     /**
      * Function for Sorting Data Of Address Book By Name
@@ -237,7 +236,9 @@ class AddressBook{
         let sortList = personList.sorted(by: {$0.firstName!.compare($1.firstName!) == .orderedAscending})
         personList = sortList
         
-       
+        print("Sort SuccessFull")
+        show()
+
     }
     /**
      * Function for Printing Data Of Address Book 
@@ -275,6 +276,6 @@ class AddressBook{
             print("Name : \(lGetFirstName) \(lGetLastName)\nMob:\(lGetTelephone) \nAddress:\(lGetAddress)\nCity:\(lGetcity) - \(lGetzip)\nState:\(lGetstate)\n")
 
                                     }
-
+     
 }
 }

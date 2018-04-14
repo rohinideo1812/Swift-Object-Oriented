@@ -1,35 +1,35 @@
 [
   {
-    "lastName" : "rdgdg",
-    "firstName" : "fdgfdg",
-    "telephoneNumber" : 1,
+    "lastName" : "Kawade",
+    "firstName" : "Gayatri",
+    "telephoneNumber" : 435456775678,
     "address" : {
-      "state" : "tryt",
-      "zip" : 1,
-      "city" : "rtytry",
-      "address" : "dfgfg"
+      "state" : "Maharashtra",
+      "zip" : 2,
+      "city" : "Mumbai",
+      "address" : "Govandi"
     }
   },
   {
-    "lastName" : "fghgfh",
-    "firstName" : "gfdhgfh",
-    "telephoneNumber" : 5676767,
+    "lastName" : "Deo",
+    "firstName" : "Rohini",
+    "telephoneNumber" : 3434442245,
     "address" : {
-      "state" : "gfhgj",
-      "zip" : 65765,
-      "city" : "gjghj",
-      "address" : "gfhgf"
+      "state" : "Maharashtra",
+      "zip" : 421004,
+      "city" : "Mumbai",
+      "address" : "Ulhas"
     }
   },
   {
-    "lastName" : "ghf",
-    "firstName" : "ghgfh",
-    "telephoneNumber" : 5464564566,
+    "lastName" : "Unhalkar",
+    "firstName" : "Ankita",
+    "telephoneNumber" : 345455465756,
     "address" : {
-      "state" : "gfhfgh",
-      "zip" : 546567,
-      "city" : "ytuty",
-      "address" : "fghgh"
+      "state" : "Maharashtra",
+      "zip" : 421995,
+      "city" : "Mumbai",
+      "address" : "Thane"
     }
   }
 ]

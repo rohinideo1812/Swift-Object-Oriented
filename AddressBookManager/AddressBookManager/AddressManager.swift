@@ -46,7 +46,7 @@ class AddressBookManager{
             let lPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files"
             do{
             fileArray = try FileManager().contentsOfDirectory(atPath: lPath)
-                for i in 0..<fileArray.count{
+                for i in 1..<fileArray.count{
                     print(fileArray[i])
                 }
 
