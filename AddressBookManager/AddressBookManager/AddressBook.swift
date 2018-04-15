@@ -9,9 +9,9 @@
 import Foundation
 class AddressBook{
     let mPath : String?
-    var personList = [Person]()
-     var sortList = [Person]()
-    var streamArray: Array<Data> = Array()
+    var mPersonList = [Person]()
+     var mSortList = [Person]()
+    var mStreamArray: Array<Data> = Array()
 
     let mMsg = "Invalid Input"
     init(path : String){
@@ -26,14 +26,14 @@ class AddressBook{
      */
     func readDataFromFile(path1 : String){
         if let file:FileHandle = FileHandle(forReadingAtPath: path1){
-            if let json = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
-                for obj in json!{
-                    let data = try? JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
+            if let lJson = try? JSONSerialization.jsonObject(with: file.availableData, options: .mutableLeaves) as? [Dictionary<String,Any>]{
+                for obj in lJson!{
+                    let lData = try? JSONSerialization.data(withJSONObject: obj, options: .prettyPrinted)
                     let jsonDecoder = JSONDecoder()
-                    guard let personData = try? jsonDecoder.decode(Person.self, from: data!) else{
+                    guard let personData = try? jsonDecoder.decode(Person.self, from: lData!) else{
                         return
                     }
-                    personList.append(personData)
+                    mPersonList.append(personData)
                 }
             }
             file.closeFile()
@@ -48,7 +48,7 @@ class AddressBook{
 
         var arrayOfDict:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
 
-        for i in personList{
+        for i in mPersonList{
 
             let jsonEncoder = JSONEncoder()
             let jsonData = try! jsonEncoder.encode(i)
@@ -73,9 +73,9 @@ class AddressBook{
      *
      */
     func acceptInputInt()->Int{
-        if let value = readLine(){
-            if let input = Int(value){
-                return input
+        if let lValue = readLine(){
+            if let lInput = Int(lValue){
+                return lInput
             }
             else{
                 print("Invalid Input")
@@ -143,10 +143,10 @@ class AddressBook{
         guard let lTelephone = readLine() else{
             fatalError(mMsg)
         }
-        let address = Address(state: lState, zip: Int(lZip)!, address: lAddress1, city: lCity)
-            let person = Person(firstName: lFirstName, lastName: lLastName, telephoneNumber: Int(lTelephone)!, address: address)
+        let lAddress = Address(state: lState, zip: Int(lZip)!, address: lAddress1, city: lCity)
+            let lPerson = Person(firstName: lFirstName, lastName: lLastName, telephoneNumber: Int(lTelephone)!, address: lAddress)
             
-        personList.append(person)
+        mPersonList.append(lPerson)
         print("Addition SuccessFull")
 
     }
@@ -160,7 +160,7 @@ class AddressBook{
         guard let lName = readLine() else{
             fatalError(mMsg)
         }
-        if let obj = personList.first(where : {$0.firstName == lName}){
+        if let lPersonObj = mPersonList.first(where : {$0.firstName == lName}){
             print("Enter the Address")
             guard let lAddress1 = readLine() else{
                 fatalError(mMsg)
@@ -182,11 +182,11 @@ class AddressBook{
             guard let lTelephone = readLine() else{
                 fatalError(mMsg)
             }
-            obj.address?.city = lCity
-            obj.address?.state = lState
-            obj.address?.zip = Int(lZip)!
-            obj.address?.address = lAddress1
-            obj.telephoneNumber = Int(lTelephone)!
+            lPersonObj.address?.city = lCity
+            lPersonObj.address?.state = lState
+            lPersonObj.address?.zip = Int(lZip)!
+            lPersonObj.address?.address = lAddress1
+            lPersonObj.telephoneNumber = Int(lTelephone)!
             print("Edition SuccessFull")
 
         }
@@ -205,9 +205,9 @@ class AddressBook{
         guard let lName = readLine() else{
             fatalError(mMsg)
         }
-        if personList.first(where : {$0.firstName == lName}) != nil{
-            if let index = personList.index(where : {$0.firstName == lName}){
-            personList.remove(at: index)
+        if mPersonList.first(where : {$0.firstName == lName}) != nil{
+            if let index = mPersonList.index(where : {$0.firstName == lName}){
+            mPersonList.remove(at: index)
             print("Deletion SuccessFull")
 
             }
@@ -221,9 +221,9 @@ class AddressBook{
      */
     func sortByZip(){
 
-  let sortList =   personList.sorted(by: {String(describing: $0.address?.zip!).compare(String(describing: $1.address?.zip!)) == .orderedAscending})
+  let lSortList =   mPersonList.sorted(by: {String(describing: $0.address?.zip!).compare(String(describing: $1.address?.zip!)) == .orderedAscending})
         
-        personList = sortList
+        mPersonList = lSortList
         print("Sort SuccessFull")
         show()
     }
@@ -233,8 +233,8 @@ class AddressBook{
      */
     func sortByName(){
         print("Sorted by name")
-        let sortList = personList.sorted(by: {$0.firstName!.compare($1.firstName!) == .orderedAscending})
-        personList = sortList
+        let lSortList = mPersonList.sorted(by: {$0.firstName!.compare($1.firstName!) == .orderedAscending})
+        mPersonList = lSortList
         
         print("Sort SuccessFull")
         show()
@@ -245,31 +245,31 @@ class AddressBook{
      *
      */
     func show(){
-        for i in 0..<personList.count{
-            guard let lGetFirstName = personList[i].firstName else{
+        for i in 0..<mPersonList.count{
+            guard let lGetFirstName = mPersonList[i].firstName else{
                 break
                 
             }
-            guard let lGetLastName = personList[i].lastName else{
+            guard let lGetLastName = mPersonList[i].lastName else{
                 break
                 
             }
-            guard let lGetTelephone = personList[i].telephoneNumber else{
+            guard let lGetTelephone = mPersonList[i].telephoneNumber else{
                 break
                 
             }
-            guard let lGetAddress = personList[i].address?.address else{                    break
+            guard let lGetAddress = mPersonList[i].address?.address else{                    break
                 
             }
-            guard let lGetzip = personList[i].address?.zip else{
+            guard let lGetzip = mPersonList[i].address?.zip else{
                 break
                 
             }
-            guard let lGetstate = personList[i].address?.state else{
+            guard let lGetstate = mPersonList[i].address?.state else{
                 break
                 
             }
-            guard let lGetcity = personList[i].address?.city else{
+            guard let lGetcity = mPersonList[i].address?.city else{
                 break
             }
             print("----------------------------------------------\n")

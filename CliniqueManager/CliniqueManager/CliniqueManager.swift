@@ -1,21 +1,22 @@
-//
-//  CliniqueManager.swift
-//  CliniqueManager
-//
-//  Created by BridgeLabz on 13/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
+/******************************************************************************
+ *  Purpose: Clinique Manager  Class.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   12-04-2018
+ *
+ ******************************************************************************/
 
 import Foundation
 class CliniqueManager{
     let mMsg = "Invalid Input"
-    var doctorList = [Doctor]()
-    var patient : Patient?
-     var patientList = [Patient]()
+    var mDoctorList = [Doctor]()
+    var mPatient : Patient?
+     var mPatientList = [Patient]()
    func acceptInputInt()->Int{
-        if let value = readLine(){
-            if let input = Int(value){
-                return input
+        if let lValue = readLine(){
+            if let lInput = Int(lValue){
+                return lInput
             }
             else{
                 print("Invalid Input")
@@ -24,37 +25,37 @@ class CliniqueManager{
         return 1
     }
     func searchDoctor(){
-        let flag = true
+        let lFlag = true
         repeat{
             print("Enter your Choice")
             print("1-Search Doctor By Id\n2-Search Doctor By Name\n3-Search Doctor by Availability\n4-Search Doctor by Specialization\n5-Back")
-            var choice = acceptInputInt()
-            switch choice {
+            let lChoice = acceptInputInt()
+            switch lChoice {
             case 1:  searchDoctorById()
             case 2 : searchDoctorByName()
             case 3 : searchDoctorByAvailability()
             case 4 : searchDoctorBySpecialization()
-            case 5 : flag == false
+            case 5 : lFlag == false
             default:
                 print("Invalid choice")
             }
-        } while flag
+        } while lFlag
     }
     func searchPatient(){
-        let flag = true
+        let lFlag = true
         repeat{
             print("Enter your Choice")
             print("1-Search Patient By Id\n2-Search Patient By Name\n3-Search Patient by Contact\n4-Back")
-            var choice = acceptInputInt()
-            switch choice {
+            let lChoice = acceptInputInt()
+            switch lChoice {
             case 1:  searchPatientById()
             case 2 : searchPatientByName()
             case 3 : searchPatientByContactNumber()
-            case 4 : flag == false
+            case 4 : lFlag == false
             default:
                 print("Invalid choice")
             }
-        } while flag
+        } while lFlag
     }
     func addDoctor(){
         print("-------DOCTORS--------\n")
@@ -77,8 +78,8 @@ class CliniqueManager{
             guard let lAvailability = readLine() else{
                 fatalError(mMsg)
             }
-            let doctor = Doctor(id: ldoctorId, name: lName, specialization: lSpecialization, availability: lAvailability,numberOfPatient : 0)
-            doctorList.append(doctor)
+            let lDoctor = Doctor(id: ldoctorId, name: lName, specialization: lSpecialization, availability: lAvailability,numberOfPatient : 0)
+            mDoctorList.append(lDoctor)
             ldoctorId += 1
             }
         print("Added SuccessFully")
@@ -103,24 +104,24 @@ class CliniqueManager{
                     fatalError(mMsg)
                 }
     
-                 patient = Patient(id: lpatientId, name: lName, mobileNumber: Int(lMobileNumber)!, age: Int(lAge)!)
-                patientList.append(patient!)
+                 mPatient = Patient(id: lpatientId, name: lName, mobileNumber: Int(lMobileNumber)!, age: Int(lAge)!)
+                mPatientList.append(mPatient!)
                 lpatientId += 1
                 
                 print("Added SuccessFully")
             }
-            return patient!
+            return mPatient!
     }
 
     func searchDoctorById(){
         print("Enter the id of Doctor to search")
         let lId = readLine()
-        guard let input = Int(lId!) else{
+        guard let lInput = Int(lId!) else{
             fatalError(mMsg)
         }
-        if let doctorObj = doctorList.first(where : {$0.id == input}){
+        if let lDoctorObj = mDoctorList.first(where : {$0.id == lInput}){
            print("Id\tName\tAvailability\tSpecialization")
-           print(doctorObj.id ?? "","\t",doctorObj.name ?? "","\t", doctorObj.availability ?? "","\t",doctorObj.specialization ?? "" )
+           print(lDoctorObj.id ?? "","\t",lDoctorObj.name ?? "","\t", lDoctorObj.availability ?? "","\t",lDoctorObj.specialization ?? "" )
             }
             else{
                 print("No such Doctor Found")
@@ -133,26 +134,26 @@ class CliniqueManager{
         guard let lName = readLine() else{
             fatalError(mMsg)
         }
-        let Doctors = doctorList.filter({$0.name as! String == lName})
-        if Doctors.count == 0{
+        let lDoctors = mDoctorList.filter({$0.name as! String == lName})
+        if lDoctors.count == 0{
             print("Doctor not Found")
         }
-        else if Doctors.count > 1{
+        else if lDoctors.count > 1{
             print("Doctor with same name exists so enter id to get details")
             print("Enter the id of a Doctor")
             let lId = readLine()
             guard let input = Int(lId!)else{
                 fatalError(mMsg)
             }
-            if let doctorObj = Doctors.first(where : {$0.id == input}){
+            if let lDoctorObj = lDoctors.first(where : {$0.id == input}){
                 print("Id\tName\tAvailability\tSpecialization")
-                print(doctorObj.id ?? "","\t",doctorObj.name ?? "","\t", doctorObj.availability ?? "","\t",doctorObj.specialization ?? "" )
+                print(lDoctorObj.id ?? "","\t",lDoctorObj.name ?? "","\t", lDoctorObj.availability ?? "","\t",lDoctorObj.specialization ?? "" )
             }
         }
         else{
-            for doctorObj in Doctors{
+            for lDoctorObj in lDoctors{
                 print("Id\tName\tAvailability\tSpecialization")
-                print(doctorObj.id ?? "","\t",doctorObj.name ?? "","\t", doctorObj.availability ?? "","\t",doctorObj.specialization ?? "" )
+                print(lDoctorObj.id ?? "","\t",lDoctorObj.name ?? "","\t", lDoctorObj.availability ?? "","\t",lDoctorObj.specialization ?? "" )
             }
         }
         }
@@ -161,7 +162,7 @@ class CliniqueManager{
         guard let lSpecialization = readLine() else{
             fatalError(mMsg)
         }
-        let lDoctors = doctorList.filter({$0.specialization as! String == lSpecialization})
+        let lDoctors = mDoctorList.filter({$0.specialization as! String == lSpecialization})
         if lDoctors.count == 0{
             print("Doctor not Found")
         }
@@ -177,12 +178,12 @@ class CliniqueManager{
         guard let lAvailability = readLine() else{
             fatalError(mMsg)
         }
-        let Doctors = doctorList.filter({$0.availability as! String == lAvailability})
-        if Doctors.count == 0{
+        let lDoctors = mDoctorList.filter({$0.availability as! String == lAvailability})
+        if lDoctors.count == 0{
             print("No Doctors")
         }
         else{
-            for lDoctorObj in Doctors{
+            for lDoctorObj in lDoctors{
                 print("Id\t  Name\t\tAvailability\tSpecialization")
                 print(lDoctorObj.id ?? "","\t",lDoctorObj.name ?? "","\t    ", lDoctorObj.availability ?? "","\t\t   ",lDoctorObj.specialization ?? "" )
             }
@@ -195,7 +196,7 @@ class CliniqueManager{
         guard let lInput = Int(lId!)else{
             fatalError(mMsg)
         }
-            if let lPatientObj = patientList.first(where : {$0.id == lInput}){
+            if let lPatientObj = mPatientList.first(where : {$0.id == lInput}){
                 print("Id\tName\tMobile\tAge")
                 print(lPatientObj.id ?? "","\t",lPatientObj.name ?? "","\t", lPatientObj.mobileNumber ?? "","\t",lPatientObj.age ?? "" )
                 }else{
@@ -207,7 +208,7 @@ class CliniqueManager{
         guard let lName = readLine() else{
             fatalError(mMsg)
         }
-        let lPatients = patientList.filter({$0.name as! String == lName})
+        let lPatients = mPatientList.filter({$0.name as! String == lName})
         if lPatients.count == 0{
             print("Patient not Found")
         }
@@ -234,10 +235,10 @@ class CliniqueManager{
     func searchPatientByContactNumber(){
         print("Enter the Telephone number of a Patient to search")
         let lTelephone = readLine()
-        guard let input = Int(lTelephone!)else{
+        guard let lInput = Int(lTelephone!)else{
             fatalError(mMsg)
         }
-        if let lPatientObj = patientList.first(where : {$0.mobileNumber == input}){
+        if let lPatientObj = mPatientList.first(where : {$0.mobileNumber == lInput}){
             print("Id\tName\tMobile\tAge")
             print(lPatientObj.id ?? "","\t",lPatientObj.name ?? "","\t", lPatientObj.mobileNumber ?? "","\t",  lPatientObj.age ?? "" )
         }
@@ -248,8 +249,8 @@ class CliniqueManager{
     func takeAppointement(){
         var lAppointementList = [Apointement]()
         let lAppointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
-        let takeappointement : ReadWriteOperation<Any>?
-//        lAppointementList = takeappointement?.readDataFromFile(path: lAppointementPath) as! [Appointement]
+        let lReadWriteFile : ReadWriteOperation<Any>?
+//        lAppointementList = lReadWriteFile?.readDataFromFile(path: lAppointementPath) as! [Appointement]
         print("Enter the Doctor Id")
         let lId = readLine()
         guard let lInput = Int(lId!)else{
@@ -257,23 +258,22 @@ class CliniqueManager{
         }
         let lDoctorList = [Doctor]()
         let lDoctorPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Doctor.json"
-//        lDoctorList = takeappointement?.readDataFromFile(path: lAppointementPath) as! [Doctor]
+//        lDoctorList = lReadWriteFile?.readDataFromFile(path: lAppointementPath) as! [Doctor]
 //
-        if let doctorObj = lDoctorList.first(where : {$0.id == lInput}){
-            if doctorObj.numberOfPatient! >= 0 && doctorObj.numberOfPatient! < 5{
+        if let lDoctorObj = lDoctorList.first(where : {$0.id == lInput}){
+            if lDoctorObj.numberOfPatient! >= 0 && lDoctorObj.numberOfPatient! < 5{
                 print("Enter the Appointement Date")
                 guard let lDate = readLine() else{
                     fatalError(mMsg)
                 }
-                let patient = addPatient()
-                if let  getPatientCount = doctorObj.numberOfPatient{
-                doctorObj.numberOfPatient = getPatientCount + 1
-                //   takeappointement?.writeDataFromFile(path: lDoctorPath, dataToBeWrite: lDoctorList)
+                let lPatientobj = addPatient()
+                if let  lGetPatientCount = lDoctorObj.numberOfPatient{
+                lDoctorObj.numberOfPatient = lGetPatientCount + 1
+//                   lReadWriteFile?.writeDataFromFile(path: lDoctorPath, dataToBeWrite: lDoctorList)
                 }
-                let appointementDetails = Apointement(patient: patient, doctorId: lInput, date: lDate)
-                lAppointementList.append(appointementDetails)
-                let appointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
-                //            takeappointement?.writeDataFromFile(path:appointementPath , dataToBeWrite: lAppointementList)
+                let lAppointementDetails = Apointement(patient: lPatientobj, doctorId: lInput, date: lDate)
+                lAppointementList.append(lAppointementDetails)
+                //            lReadWriteFile?.writeDataFromFile(path:appointementPath , dataToBeWrite: lAppointementPath)
                 
             }
             else{
@@ -287,12 +287,94 @@ class CliniqueManager{
         }
     }
     func displayPatientList(){
-        
+//        let readFile : ReadWriteOperation<Any>?
+//        let patientPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Patient.swift"
+//        let lPatientList = [Patient]()
+//
+//    lPatientList = readFile?.readDataFromFile(path: lPatientPath) as! [Patient]
+//        for i in 0..<lPatientList.count{
+//            guard let lGetName = lPatientList[i].name else{
+//                break
+//
+//            }
+//            guard let lGetid = lPatientList[i].id else{
+//                break
+//
+//            }
+//            guard let lGetContactNumber = lPatientList[i].mobileNumber else{
+//                break
+//
+//            }
+//            guard let lGetAge = lPatientList[i].age else{
+//                  break
+//
+//            }
+//
+//            print("----------------------------------------------\n")
+        //            print("Id : \(lGetid),\nName : \(lGetName),\nAge : \(lGetAge),\nContactNumber : \(lGetContactNumber)")
+//
+//    }
     }
     func displayAppointementist(){
+//        let readFile : ReadWriteOperation<Any>?
+//        let lAppointementList = [Appointement]()
+        // let lAppointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
+//        lAppointementList = readFile?.readDataFromFile(path: lAppointementPath) as! [Appointement]
+//                for i in 0..<lAppointementList.count{
+//         guard let lGetPatientName = lAppointementList[i].patient?.name else{
+//                        break
+//
+//                    }
+//         guard let lGetPatientId = lAppointementList[i].patient?.id else{
+//                        break
+//
+//                    }
+//         guard let lGetContactNumber = lAppointementList[i].patient?.mobileNumber else{
+//                        break
+//
+//                    }
+//         guard let lGetPatientAge = lAppointementList[i].patient?.age else{
+//                       break
+//                    }
+//          guard let lGetDoctorId = lAppointementList[i].id else{
+//                        break
+//
+//                    }
+//           guard let lGetDate = lAppointementList[i].date.state else{
+//                        break
+//
+//                    }
+//              print("----------------------------------------------\n")
+        //        print("DoctorId : \(lGetDoctorId),\nDate : \(lGetDate),\nPatient:\nid : \(lGetPatientId),\nName : \(lGetPatientName),\nAge : \(lGetPatientAge),\nContactNumber : \(lGetContactNumber) ")
+//
+//            }
         
     }
     func displayDoctorList(){
-        
+//        let readFile : ReadWriteOperation<Any>?
+//        let lDoctorList = [Doctor]()
+        //        let lDoctorPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Doctor.json"
+//        lDoctorList = readFile?.readDataFromFile(path: lAppointementPath) as! [Doctor]
+//                for i in 0..<lDoctorList.count{
+//                    guard let lGetId = lDoctorList[i].id else{
+//                        break
+//
+//                    }
+//                    guard let lGetName = lDoctorList[i].name else{
+//                        break
+//
+//                    }
+//         guard let lGetSpecialization = lDoctorList[i].specialization else{
+//                        break
+//
+//                    }
+//            guard let lGetAvailability = lDoctorList[i].availability else{
+//                        break
+//                    }
+//
+//              print("----------------------------------------------\n")
+        //        print("Id : \(lGetId),\nName : \(lGetName),\nSpecialization : \(lGetSpecialization),\nAvailability : \(lGetAvailability)")
+//
+//            }
     }
 }

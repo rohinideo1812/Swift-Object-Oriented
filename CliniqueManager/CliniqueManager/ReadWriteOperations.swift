@@ -16,9 +16,9 @@ class ReadWriteOperation<T>{
     init(path : String) {
     self.path = path
         writeDataFromFile(path: path, dataToBeWrite: [arrayToBeWrite])
-//        readedArray = readDataFromFile(path: path)
-}
-   
+//        let readedArray = readDataFromFile(path: path)
+    }
+    
     func writeDataFromFile <T:Codable> (path : String,dataToBeWrite : [T]){
         var arrayOfDict:[Dictionary<String,Any>] = [Dictionary<String,Any>]()
         for T in dataToBeWrite  {

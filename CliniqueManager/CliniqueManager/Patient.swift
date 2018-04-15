@@ -1,11 +1,11 @@
-//
-//  Patient.swift
-//  CliniqueManager
-//
-//  Created by BridgeLabz on 13/04/18.
-//  Copyright © 2018 BridgeLabz. All rights reserved.
-//
-
+/******************************************************************************
+ *  Purpose: Patient Class.
+ *
+ *  @author Rohini
+ *  @version 4.0
+ *  @since   12-04-2018
+ *
+ ******************************************************************************/
 import Foundation
 class Patient{
     public var id : Int?

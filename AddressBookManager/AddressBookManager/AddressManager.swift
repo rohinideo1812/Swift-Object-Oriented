@@ -9,9 +9,9 @@
 import Foundation
 class AddressBookManager{
     var mOperationPath = ""
-    var addressbook:AddressBook?
+    var mAddressbook:AddressBook?
     let mMsg = "Invalid Input"
-    var fileArray = [String]()
+    var mFileArray = [String]()
     func acceptInputInt()->Int{
         if let lValue = readLine(){
             if let lInput = Int(lValue){
@@ -45,9 +45,9 @@ class AddressBookManager{
         func openAddressBook(){
             let lPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/AddressBookManager/AddressBookManager/Files"
             do{
-            fileArray = try FileManager().contentsOfDirectory(atPath: lPath)
-                for i in 1..<fileArray.count{
-                    print(fileArray[i])
+            mFileArray = try FileManager().contentsOfDirectory(atPath: lPath)
+                for index in 1..<mFileArray.count{
+                    print(mFileArray[index])
                 }
 
             }catch {
@@ -73,7 +73,7 @@ class AddressBookManager{
      *
      */
     func saveAddressBook(){
-            addressbook?.writeDataToFile(path: mOperationPath)
+            mAddressbook?.writeDataToFile(path: mOperationPath)
         }
     /**
      * Function for Saving Data Of Address Book To New File
@@ -88,6 +88,6 @@ class AddressBookManager{
             if FileManager().createFile(atPath: lPath, contents: nil, attributes: nil){
                 print("File is created")
             }
-            addressbook?.writeDataToFile(path: lPath)
+            mAddressbook?.writeDataToFile(path: lPath)
     }
 }
