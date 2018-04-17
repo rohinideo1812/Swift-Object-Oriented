@@ -12,7 +12,7 @@
 		0ABEC70920808F2600CDADAB /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC70820808F2500CDADAB /* Doctor.swift */; };
 		0ABEC70B20808F3A00CDADAB /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC70A20808F3A00CDADAB /* Patient.swift */; };
 		0ABEC71320809B3600CDADAB /* CliniqueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC71220809B3600CDADAB /* CliniqueManager.swift */; };
-		0ABEC7182080B58500CDADAB /* ReadWriteOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC7172080B58500CDADAB /* ReadWriteOperations.swift */; };
+		0ABEC7182080B58500CDADAB /* ReadWriteFileOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABEC7172080B58500CDADAB /* ReadWriteFileOperations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,7 +37,7 @@
 		0ABEC7142080B48A00CDADAB /* Doctor.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Doctor.json; sourceTree = "<group>"; };
 		0ABEC7152080B49A00CDADAB /* Patient.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Patient.json; sourceTree = "<group>"; };
 		0ABEC7162080B4B200CDADAB /* Appointement.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Appointement.json; sourceTree = "<group>"; };
-		0ABEC7172080B58500CDADAB /* ReadWriteOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteOperations.swift; sourceTree = "<group>"; };
+		0ABEC7172080B58500CDADAB /* ReadWriteFileOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadWriteFileOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				0ABEC70820808F2500CDADAB /* Doctor.swift */,
 				0ABEC70A20808F3A00CDADAB /* Patient.swift */,
 				0ABEC71220809B3600CDADAB /* CliniqueManager.swift */,
-				0ABEC7172080B58500CDADAB /* ReadWriteOperations.swift */,
+				0ABEC7172080B58500CDADAB /* ReadWriteFileOperations.swift */,
 				0ABEC7142080B48A00CDADAB /* Doctor.json */,
 				0ABEC7152080B49A00CDADAB /* Patient.json */,
 				0ABEC7162080B4B200CDADAB /* Appointement.json */,
@@ -146,7 +146,7 @@
 				0ABEC6FD2080870D00CDADAB /* main.swift in Sources */,
 				0ABEC70720808F1B00CDADAB /* Appointement.swift in Sources */,
 				0ABEC71320809B3600CDADAB /* CliniqueManager.swift in Sources */,
-				0ABEC7182080B58500CDADAB /* ReadWriteOperations.swift in Sources */,
+				0ABEC7182080B58500CDADAB /* ReadWriteFileOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

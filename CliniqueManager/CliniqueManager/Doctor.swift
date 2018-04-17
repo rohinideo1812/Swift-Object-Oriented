@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 import Foundation
-class Doctor{
+class Doctor : Codable{
     public var id : Int?
     public var numberOfPatient : Int?
     public var name : String?

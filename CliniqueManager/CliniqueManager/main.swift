@@ -22,7 +22,7 @@ repeat{
     case 5 :  lCliniquemanager.displayPatientList()
     case 6 : lCliniquemanager.displayDoctorList()
     case 7 : lCliniquemanager.displayAppointementist()
-    case 8 : lFlag == false
+    case 8 : lFlag = false
     default : print("Invalid Choice")
 }
 }while lFlag

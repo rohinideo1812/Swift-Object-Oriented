@@ -1,1 +1,22 @@
-
+[
+  {
+    "doctorId" : 1,
+    "patient" : {
+      "age" : 23,
+      "id" : 5,
+      "name" : "Usha",
+      "mobileNumber" : 34545665768
+    },
+    "date" : "2-2-2018"
+  },
+  {
+    "doctorId" : 1,
+    "patient" : {
+      "age" : 23,
+      "id" : 1,
+      "name" : "Pushpa",
+      "mobileNumber" : 5657687
+    },
+    "date" : "2-2-2017"
+  }
+]

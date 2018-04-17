@@ -9,6 +9,10 @@
 
 import Foundation
 class CliniqueManager{
+    let readWriteData = ReadWriteFileOperations()
+    let lDoctorPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Doctor.json"
+    let lAppointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
+    let lPatientPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Patient.json"
     let mMsg = "Invalid Input"
     var mDoctorList = [Doctor]()
     var mPatient : Patient?
@@ -59,7 +63,6 @@ class CliniqueManager{
     }
     func addDoctor(){
         print("-------DOCTORS--------\n")
-
         var ldoctorId = 1
         print("Enter the number of times")
         let lNumber = acceptInputInt()
@@ -83,6 +86,9 @@ class CliniqueManager{
             ldoctorId += 1
             }
         print("Added SuccessFully")
+        readWriteData.writeDataToFile(path: lDoctorPath, arrayToBeWritten: mDoctorList)
+    
+    
     }
         func addPatient()->Patient{
             print("------PATIENTS--------\n")
@@ -109,6 +115,7 @@ class CliniqueManager{
                 lpatientId += 1
                 
                 print("Added SuccessFully")
+              readWriteData.writeDataToFile(path: lPatientPath, arrayToBeWritten: mPatientList)
             }
             return mPatient!
     }
@@ -248,20 +255,25 @@ class CliniqueManager{
  }
     func takeAppointement(){
         var lAppointementList = [Apointement]()
-        let lAppointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
-        let lReadWriteFile : ReadWriteOperation<Any>?
-//        lAppointementList = lReadWriteFile?.readDataFromFile(path: lAppointementPath) as! [Appointement]
+        readWriteData.readDataFromFile(path: lAppointementPath, type: Apointement.self, callback: { list in
+            for obj in list{
+                lAppointementList.append(obj)
+            }
+        })
+        
         print("Enter the Doctor Id")
         let lId = readLine()
         guard let lInput = Int(lId!)else{
             fatalError(mMsg)
         }
-        let lDoctorList = [Doctor]()
-        let lDoctorPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Doctor.json"
-//        lDoctorList = lReadWriteFile?.readDataFromFile(path: lAppointementPath) as! [Doctor]
-//
+        var lDoctorList = [Doctor]()
+        readWriteData.readDataFromFile(path: lDoctorPath, type: Doctor.self, callback: {list in
+            for obj1 in list{
+            lDoctorList.append(obj1)
+            }
+        })
         if let lDoctorObj = lDoctorList.first(where : {$0.id == lInput}){
-            if lDoctorObj.numberOfPatient! >= 0 && lDoctorObj.numberOfPatient! < 5{
+            if lDoctorObj.numberOfPatient! >= 0 && lDoctorObj.numberOfPatient! <= 2{
                 print("Enter the Appointement Date")
                 guard let lDate = readLine() else{
                     fatalError(mMsg)
@@ -269,11 +281,12 @@ class CliniqueManager{
                 let lPatientobj = addPatient()
                 if let  lGetPatientCount = lDoctorObj.numberOfPatient{
                 lDoctorObj.numberOfPatient = lGetPatientCount + 1
-//                   lReadWriteFile?.writeDataFromFile(path: lDoctorPath, dataToBeWrite: lDoctorList)
+                    readWriteData.writeDataToFile(path: lDoctorPath, arrayToBeWritten: lDoctorList)
+
                 }
                 let lAppointementDetails = Apointement(patient: lPatientobj, doctorId: lInput, date: lDate)
                 lAppointementList.append(lAppointementDetails)
-                //            lReadWriteFile?.writeDataFromFile(path:appointementPath , dataToBeWrite: lAppointementPath)
+                readWriteData.writeDataToFile(path: lAppointementPath, arrayToBeWritten: lAppointementList)
                 
             }
             else{
@@ -287,94 +300,104 @@ class CliniqueManager{
         }
     }
     func displayPatientList(){
-//        let readFile : ReadWriteOperation<Any>?
-//        let patientPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Patient.swift"
-//        let lPatientList = [Patient]()
-//
-//    lPatientList = readFile?.readDataFromFile(path: lPatientPath) as! [Patient]
-//        for i in 0..<lPatientList.count{
-//            guard let lGetName = lPatientList[i].name else{
-//                break
-//
-//            }
-//            guard let lGetid = lPatientList[i].id else{
-//                break
-//
-//            }
-//            guard let lGetContactNumber = lPatientList[i].mobileNumber else{
-//                break
-//
-//            }
-//            guard let lGetAge = lPatientList[i].age else{
-//                  break
-//
-//            }
-//
-//            print("----------------------------------------------\n")
-        //            print("Id : \(lGetid),\nName : \(lGetName),\nAge : \(lGetAge),\nContactNumber : \(lGetContactNumber)")
-//
-//    }
+        var lPatientList = [Patient]()
+        readWriteData.readDataFromFile(path: lPatientPath, type: Patient.self, callback: { list in
+            for obj in list{
+                lPatientList.append(obj)
+            }
+            
+        })
+        for i in 0..<lPatientList.count{
+            guard let lGetName = lPatientList[i].name else{
+                break
+
+            }
+            guard let lGetid = lPatientList[i].id else{
+                break
+
+            }
+            guard let lGetContactNumber = lPatientList[i].mobileNumber else{
+                break
+
+            }
+            guard let lGetAge = lPatientList[i].age else{
+                  break
+
+            }
+
+            print("----------------------------------------------\n")
+                    print("Id : \(lGetid),\nName : \(lGetName),\nAge : \(lGetAge),\nContactNumber : \(lGetContactNumber)")
+            
+            print("----------------------------------------------")
+
+    }
     }
     func displayAppointementist(){
-//        let readFile : ReadWriteOperation<Any>?
-//        let lAppointementList = [Appointement]()
-        // let lAppointementPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Appointement.json"
-//        lAppointementList = readFile?.readDataFromFile(path: lAppointementPath) as! [Appointement]
-//                for i in 0..<lAppointementList.count{
-//         guard let lGetPatientName = lAppointementList[i].patient?.name else{
-//                        break
-//
-//                    }
-//         guard let lGetPatientId = lAppointementList[i].patient?.id else{
-//                        break
-//
-//                    }
-//         guard let lGetContactNumber = lAppointementList[i].patient?.mobileNumber else{
-//                        break
-//
-//                    }
-//         guard let lGetPatientAge = lAppointementList[i].patient?.age else{
-//                       break
-//                    }
-//          guard let lGetDoctorId = lAppointementList[i].id else{
-//                        break
-//
-//                    }
-//           guard let lGetDate = lAppointementList[i].date.state else{
-//                        break
-//
-//                    }
-//              print("----------------------------------------------\n")
-        //        print("DoctorId : \(lGetDoctorId),\nDate : \(lGetDate),\nPatient:\nid : \(lGetPatientId),\nName : \(lGetPatientName),\nAge : \(lGetPatientAge),\nContactNumber : \(lGetContactNumber) ")
-//
-//            }
+        var lAppointementList = [Apointement]()
+        readWriteData.readDataFromFile(path: lAppointementPath, type: Apointement.self, callback: {list in
+        for obj in list{
+            lAppointementList.append(obj)
+        }
+       })
+                for i in 0..<lAppointementList.count{
+         guard let lGetPatientName = lAppointementList[i].patient?.name else{
+                        break
+
+                    }
+         guard let lGetPatientId = lAppointementList[i].patient?.id else{
+                        break
+
+                    }
+         guard let lGetContactNumber = lAppointementList[i].patient?.mobileNumber else{
+                        break
+
+                    }
+         guard let lGetPatientAge = lAppointementList[i].patient?.age else{
+                       break
+                    }
+          guard let lGetDoctorId = lAppointementList[i].doctorId else{
+                        break
+
+                    }
+           guard let lGetDate = lAppointementList[i].date else{
+                        break
+
+                    }
+              print("----------------------------------------------\n")
+                print("DoctorId : \(lGetDoctorId),\nDate : \(lGetDate),\nPatient:\nid : \(lGetPatientId),\nName : \(lGetPatientName),\nAge : \(lGetPatientAge),\nContactNumber : \(lGetContactNumber) ")
+                    print("----------------------------------------------")
+
+            }
         
     }
     func displayDoctorList(){
-//        let readFile : ReadWriteOperation<Any>?
-//        let lDoctorList = [Doctor]()
-        //        let lDoctorPath = "/Users/bridgelabz/Documents/Swift-ObjectOriented/CliniqueManager/CliniqueManager/Doctor.json"
-//        lDoctorList = readFile?.readDataFromFile(path: lAppointementPath) as! [Doctor]
-//                for i in 0..<lDoctorList.count{
-//                    guard let lGetId = lDoctorList[i].id else{
-//                        break
-//
-//                    }
-//                    guard let lGetName = lDoctorList[i].name else{
-//                        break
-//
-//                    }
-//         guard let lGetSpecialization = lDoctorList[i].specialization else{
-//                        break
-//
-//                    }
-//            guard let lGetAvailability = lDoctorList[i].availability else{
-//                        break
-//                    }
-//
-//              print("----------------------------------------------\n")
-        //        print("Id : \(lGetId),\nName : \(lGetName),\nSpecialization : \(lGetSpecialization),\nAvailability : \(lGetAvailability)")
-//
-//            }
+        var lDoctorList = [Doctor]()
+        readWriteData.readDataFromFile(path: lDoctorPath, type: Doctor.self, callback: {list in
+            for obj in list{
+                lDoctorList.append(obj)
+            }
+        })
+for i in 0..<lDoctorList.count{
+                    guard let lGetId = lDoctorList[i].id else{
+                        break
+
+                    }
+                    guard let lGetName = lDoctorList[i].name else{
+                        break
+
+                    }
+         guard let lGetSpecialization = lDoctorList[i].specialization else{
+                        break
+
+                    }
+            guard let lGetAvailability = lDoctorList[i].availability else{
+                        break
+                    }
+
+              print("----------------------------------------------\n")
+                print("Id : \(lGetId),\nName : \(lGetName),\nSpecialization : \(lGetSpecialization),\nAvailability : \(lGetAvailability)")
+    print("----------------------------------------------")
+
+            }
     }
 }

@@ -7,7 +7,7 @@
  *
  ******************************************************************************/
 import Foundation
-class Apointement{
+class Apointement : Codable{
     public var patient : Patient?
     public var doctorId : Int?
     public var date : String?

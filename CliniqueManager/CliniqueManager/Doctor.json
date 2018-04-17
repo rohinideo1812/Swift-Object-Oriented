@@ -1,1 +1,16 @@
-
+[
+  {
+    "numberOfPatient" : 2,
+    "name" : "Rohini",
+    "specialization" : "Heart",
+    "id" : 1,
+    "availability" : "AM"
+  },
+  {
+    "numberOfPatient" : 0,
+    "name" : "Poonam",
+    "specialization" : "Neuro",
+    "id" : 2,
+    "availability" : "AM"
+  }
+]
